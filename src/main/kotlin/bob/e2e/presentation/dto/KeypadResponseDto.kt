@@ -1,14 +1,13 @@
 package bob.e2e.presentation.dto
 
-import java.time.LocalDateTime
+import java.util.*
 
-data class KeypadResponseDto {
-
-    // private val 이미지, 아이디, 시간, 해시값
-    val id: Long,
+data class KeypadResponseDto(
+    val id: UUID,
     val keys: List<String>,
-    val timestamp: LocalDateTime
-}
+    val timestamp: Long,
+    val keypadImage: String,
+)
 
 
 
