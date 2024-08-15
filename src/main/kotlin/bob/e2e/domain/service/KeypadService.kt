@@ -56,10 +56,10 @@ class KeypadService {
             for (j in 0 until cols) {
                 val index = i * cols + j
                 val hashIndex = hashes[index.toString()]
-                if (index < imagePathMap.size) { // 12개의 이미지만 처리
-                    val imagePath = imagePathMap.get(shuffledKeys[index]) // 이미지 경로 가져오기
+                if (index < shuffledKeys.size) {
+                    val imagePath = imagePathMap.get(shuffledKeys[index])
                     if (imagePath != null) {
-                        val image = ImageIO.read(File(imagePath)) // 이미지 읽기
+                        val image = ImageIO.read(File(imagePath))
                         g.drawImage(image, j * imageWidth, i * imageHeight, imageWidth, imageHeight, null)
                     }
                 }
@@ -75,14 +75,6 @@ class KeypadService {
 
         // Base64 인코딩
         val base64String = Base64.getEncoder().encodeToString(imageBytes)
-
-        println(hashes)
-        println(keys)
-        println(shuffledKeys)
-        println(hashKeys)
-        println(imagePathMap)
-        println(mergedImage)
-        println(base64String)
 
         val keypadDetails: Triple<UUID, Long, String> = generateKeypadDetails("jiyun");
 
