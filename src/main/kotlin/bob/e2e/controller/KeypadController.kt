@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RequestMapping("/keypad")
+@RequestMapping("/api/keypad")
 @RestController
 class KeypadController(
     private val keypadService: KeypadService,
 ) {
 
-    @GetMapping("/test/a")
+    @GetMapping("/test")
     fun testA(): String {
         return "Hello Spring"
     }
