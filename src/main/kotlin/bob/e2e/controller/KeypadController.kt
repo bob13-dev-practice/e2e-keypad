@@ -1,10 +1,9 @@
 package bob.e2e.controller
 
-import bob.e2e.domain.service.KeypadService
+import bob.e2e.service.KeypadService
+import bob.e2e.presentation.dto.KeypadAuthRequestDto
 import bob.e2e.presentation.dto.KeypadResponseDto
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RequestMapping("/api/keypad")
 @RestController
@@ -20,5 +19,10 @@ class KeypadController(
     @GetMapping
     fun getKeypad(): KeypadResponseDto {
         return keypadService.getKeypad()
+    }
+
+    @PostMapping("/auth")
+    fun authKeypad(@RequestBody requestDto: KeypadAuthRequestDto): String  {
+        return keypadService.authKeypad(requestDto)
     }
 }
